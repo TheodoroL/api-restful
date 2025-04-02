@@ -23,6 +23,15 @@ public class Client {
     private List<News> news;
 
     // Getters e setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Account getAccount() {
         return account;
     }
