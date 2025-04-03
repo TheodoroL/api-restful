@@ -3,6 +3,7 @@ package com.theodorol.api.service.impl;
 import com.theodorol.api.model.Client;
 import com.theodorol.api.repository.ClientRepository;
 import com.theodorol.api.service.ClientService;
+import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -22,8 +23,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client create(Client client) {
-        if(repository.existByAccountNumber(client.getAccount().getNumber())){
-            throw  new IllegalArgumentException("O usuário já existe");
+        if (repository.existsByAccountNumber(client.getAccount().getNumber())) {
+            throw new IllegalArgumentException("O usuário já existe");
         }
         return repository.save(client);
     }

@@ -9,7 +9,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private Long id;
-
+    @Column(nullable = false)
+    private String name;
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
@@ -30,6 +31,14 @@ public class Client {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Account getAccount() {
